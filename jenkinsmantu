@@ -13,6 +13,7 @@ stage('checkoutcode'){
 stage('Build'){
     sh "$mavenHome/bin/mvn clean package"
 }
+//
 //soanrqube report
 stage('sonarqubeReport'){
     sh "$mavenHome/bin/mvn sonar:sonar"
@@ -28,3 +29,4 @@ stage('DeployAppintotomcat'){
 }
 }
 }
+//
