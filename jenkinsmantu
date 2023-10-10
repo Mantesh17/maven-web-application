@@ -3,6 +3,7 @@ def mavenHome= tool name: "maven3.8.5"
 echo "the node name is: ${env.NODE_NAME}"
 echo "the node name is: ${env.JOB_NAME}"
 echo "the node name is: ${env.BUILD_NAME}"
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))])
 //stage checkout
 stage('checkoutcode'){
     git branch: 'development', credentialsId: 'd83ef7e4-6e7a-42ae-b772-7a6acd1bd37c', url: 'https://github.com/Mantesh17/maven-web-application.git'
