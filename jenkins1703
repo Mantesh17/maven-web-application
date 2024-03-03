@@ -14,13 +14,15 @@ stage('sonarqubeReport'){
     sh "$mavenHome/bin/mvn sonar:sonar"
 }
 //upload Artifact into Nexus
-stage('UploadArtifactintoNexus'){
+*/stage('UploadArtifactintoNexus'){
     sh "$mavenHome/bin/mvn deploy"
 }
 //tomcat deploy
 stage('DeployAppintotomcat'){
-    sshagent(['1db84ee1-959a-482d-adb1-40cdff59a81b']) {
+    sshagent(['1db84ee1-959a-42d-adb1-40cdff59a81b']) {
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@65.0.109.6:/opt/apache-tomcat-9.0.80/webapps"
 }
+
 }
+/*
 }
